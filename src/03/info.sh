@@ -1,7 +1,7 @@
 #!/bin/bash
 
 COLOR=./colors.sh
-# COLOR_DEFAULT='\033[0m'
+COLOR_DEFAULT='\033[0m\n'
 
 HOSTNAME=$(hostname)
 TIMEZONE="$(timedatectl | grep "Time zone" | awk '{print $3}') $(date +'UTC %-:::z')"
@@ -23,22 +23,22 @@ SPACE_ROOT_FREE=$(df -h / | awk '/dev/{print $4}')
 # Инициализация переменных и изменения цвета
 
 function init {
-    echo "$($COLOR $1 $2)HOSTNAME = $($COLOR $3 $4)$HOSTNAME"
-    echo "$($COLOR $1 $2)TIMEZONE = $($COLOR $3 $4)$TIMEZONE"
-    echo "$($COLOR $1 $2)USER = $($COLOR $3 $4)$USER"
-    echo "$($COLOR $1 $2)OS = $($COLOR $3 $4)$OS"
-    echo "$($COLOR $1 $2)DATE = $($COLOR $3 $4)$DATE"
-    echo "$($COLOR $1 $2)UPTIME = $($COLOR $3 $4)$UPTIME"
-    echo "$($COLOR $1 $2)UPTIME_SEC = $($COLOR $3 $4)$UPTIME_SEC"
-    echo "$($COLOR $1 $2)IP = $($COLOR $3 $4)$IP"
-    echo "$($COLOR $1 $2)MASK = $($COLOR $3 $4)$MASK"
-    echo "$($COLOR $1 $2)GATEWAY = $($COLOR $3 $4)$GATEWAY"
-    echo "$($COLOR $1 $2)RAM_TOTAL = $($COLOR $3 $4)$RAM_TOTAL"
-    echo "$($COLOR $1 $2)RAM_USED = $($COLOR $3 $4)$RAM_USED"
-    echo "$($COLOR $1 $2)RAM_FREE = $($COLOR $3 $4)$RAM_FREE"
-    echo "$($COLOR $1 $2)SPACE_ROOT = $($COLOR $3 $4)$SPACE_ROOT"
-    echo "$($COLOR $1 $2)SPACE_ROOT_USED = $($COLOR $3 $4)$SPACE_ROOT_USED"
-    echo "$($COLOR $1 $2)SPACE_ROOT_FREE = $($COLOR $3 $4)$SPACE_ROOT_FREE"
+    echo -en "$($COLOR $1 $2)HOSTNAME\033[0m = $($COLOR $3 $4)$HOSTNAME${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)TIMEZONE\033[0m = $($COLOR $3 $4)$TIMEZONE${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)USER\033[0m = $($COLOR $3 $4)$USER${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)OS\033[0m = $($COLOR $3 $4)$OS${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)DATE\033[0m = $($COLOR $3 $4)$DATE${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)UPTIME\033[0m = $($COLOR $3 $4)$UPTIME${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)UPTIME_SEC\033[0m = $($COLOR $3 $4)$UPTIME_SEC${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)IP\033[0m = $($COLOR $3 $4)$IP${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)MASK\033[0m = $($COLOR $3 $4)$MASK${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)GATEWAY\033[0m = $($COLOR $3 $4)$GATEWAY${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)RAM_TOTAL\033[0m = $($COLOR $3 $4)$RAM_TOTAL${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)RAM_USED\033[0m = $($COLOR $3 $4)$RAM_USED${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)RAM_FREE\033[0m = $($COLOR $3 $4)$RAM_FREE${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)SPACE_ROOT\033[0m = $($COLOR $3 $4)$SPACE_ROOT${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)SPACE_ROOT_USED\033[0m = $($COLOR $3 $4)$SPACE_ROOT_USED${COLOR_DEFAULT}"
+    echo -en "$($COLOR $1 $2)SPACE_ROOT_FREE\033[0m = $($COLOR $3 $4)$SPACE_ROOT_FREE${COLOR_DEFAULT}"
     echo -en "\033[0m\n"
     
 }
